@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		li{
+			float: left;
+			height: 20px;
+			width: 70px;
+			border-bottom:1px solid #000;
+			border-right:1px solid #000;
+			text-align: center;
+			line-height: 20px;
+			cursor: pointer;
+		}
+		#container{
+			
+			border:1px solid #000;
+			height: 200px;
+			width: 220px;
+			margin: 0 auto;
+			
+		}
+		#content{
+			clear: both;
+		}
+		#content div{
+			height: 180px;
+			width: 220px;
+			display: none;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="container">
+		<ul id="tab">
+			<li>html</li>
+			<li>css</li>
+			<li>javascript</li>
+		</ul>
+		<div id="content">
+			<div>111</div>
+			<div>222</div>
+			<div>333</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+		var oContent = document.getElementById('content');
+		var aDiv = oContent.getElementsByTagName('div');
+		var oTab = document.getElementById('tab');
+		var aLi = oTab.getElementsByTagName('li');
+		aDiv[0].style.display = 'block';
+		aLi[0].style.background = '#ccc';
+		
+		for(var i = 0; i <aLi.length; i++){
+			aLi[i].index = i;
+
+			aLi[i].onclick = function(){
+				aLi[0].style.background = 'white';
+				for(var j = 0; j <aLi.length; j++){
+					aLi[j].style.background = 'white';
+					aDiv[j].style.display = 'none';
+
+				}
+				this.style.background = '#ccc';
+			
+				console.log(Math.random());
+				aDiv[this.index].style.display='block';
+			}
+				
+		}
+
+				
+			
+	</script>
+</body>
+</html>`

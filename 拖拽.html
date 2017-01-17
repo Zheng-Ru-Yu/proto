@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #square {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="square"></div>
+    <script type="text/javascript">
+    var oSquare = document.getElementById('square');
+    oSquare.onmousedown = function(e) {
+        // console.log(e);
+        e = e || event;
+        var iDisX = e.clientX - oSquare.offsetLeft;
+        var iDisY = e.clientY - oSquare.offsetTop;
+        document.onmousemove = function(e) {
+            e = e || event;
+            oSquare.style.left = e.clientX - iDisX + 'px';
+            oSquare.style.top = e.clientY - iDisY + 'px';
+        };
+
+
+    };
+    oSquare.onmouseup = function() {
+        document.onmousemove = null;
+    };
+    
+    function CPos(x, y)
+		{
+		this.x = x;
+		this.y = y;
+		}
+		function GetObjPos(ATarget)
+		{
+		var target = ATarget;
+		var pos = new CPos(target.offsetLeft, target.offsetTop);
+		var target = target.offsetParent;
+		while (target)
+		{
+		pos.x += target.offsetLeft;
+		pos.y += target.offsetTop;
+		target = target.offsetParent
+		}
+		return pos;
+		}
+		
+		console.log(GetObjPos(oSquare)['x']) //x坐标
+		console.log(GetObjPos(oSquare)['y']) //y坐标
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		body{
+			height: 1000px;
+		}
+		#div1{
+			float: left;
+			width: 0px;
+			height: 100px;
+			background-color: red;
+			
+		}
+		#div2{
+			float: left;
+			width: 30px;
+			height: 100px;
+			background-color: green;
+		}
+		#container{
+			background: yellow;
+			float: left;
+			/*width: 60px;
+			height: 100px;*/
+			position: absolute;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="div1"></div><div id="div2">联系我</div>
+	</div>
+	
+	<script type="text/javascript">
+		var oDiv1 = document.getElementById('div1');
+		var oContainer = document.getElementById('container');
+		window.onscroll = function(){
+			var iScrollTop = document.body.scrollTop||document.documentElement.scrollTop;
+			oContainer.style.top = iScrollTop + 100 + "px";
+		}
+		var timer;
+
+		oContainer.onmouseover = function(){
+			clearInterval(timer);
+			timer = setInterval(function(){	
+			if (oDiv1.offsetWidth >= 30) {	
+					clearInterval(timer);
+				}else{
+					oDiv1.style.width = oDiv1.offsetWidth+10+'px';
+				}
+			},100);
+		}
+		oContainer.onmouseout = function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+			if (oDiv1.offsetWidth <= 0) {	
+					clearInterval(timer);
+				}else{
+				oDiv1.style.width = oDiv1.offsetWidth-10+'px';
+				}
+			},100);
+		}
+			
+	</script>
+</body>
+</html>
