@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		#div1{
+			/*transition : all 5s ease-in;*/
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			margin-top: 50px;
+			
+		}
+		/*#div1:hover{
+			left: 500px;
+				}*/
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	
+	
+	<script type="text/javascript">
+		var oDiv1 = document.getElementById('div1');
+		var timer;
+		oDiv1.onmouseover = function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+					
+			if (oDiv1.offsetWidth >= 300) {	
+					clearInterval(timer);
+				}else{
+					oDiv1.style.width = oDiv1.offsetWidth+10+'px';
+				}
+			},100);
+		}
+		oDiv1.onmouseout = function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+			if (oDiv1.offsetWidth <= 50) {	
+					clearInterval(timer);
+				}else{
+				oDiv1.style.width = oDiv1.offsetWidth-10+'px';
+				}
+			},100);
+		}
+		
+
+			
+	</script>
+</body>
+</html>
