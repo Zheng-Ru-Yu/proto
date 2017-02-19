@@ -91,8 +91,8 @@
 			clearInterval(timer);
 			if (this==oPrev) {
 				timer = setInterval(function(){
-					oImgs.style.left = oImgs.offsetLeft - 10 +'px';
-					if (oImgs.offsetLeft <=	-oImgs.offsetWidth/2+10 )  {
+					oImgs.style.left = oImgs.offsetLeft - 10 +'px';//offset没有单位					
+				if (oImgs.offsetLeft <=	-oImgs.offsetWidth/2+10 )  {
 						console.log(oImgs);
 						oImgs.style.left = 0;
 					}
