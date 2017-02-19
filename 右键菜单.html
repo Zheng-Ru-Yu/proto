@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+				width: 100px;
+				border:2px solid #ccc;
+				text-indent:10px;
+				position: absolute;
+
+			}
+			li{
+				height: 30px;
+				border-bottom: 1px dotted #333;
+				line-height: 30px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+
+
+		<script type="text/javascript">
+		document.oncontextmenu = function(e){
+			//console.log(Math.random());
+			e = e || window.event;
+			var oContext = document.getElementById('context');
+			if(oContext){
+				document.body.removeChild(context);
+			}
+			var oUl = document.createElement('ul');
+			oUl.id = 'context';
+			oUl.style.left = e.clientX + 'px';
+			oUl.style.top = e.clientY +'px';
+			for(var i = 1; i<=3; i++){
+				var oLi = document.createElement('li');
+				oLi.innerHTML='菜单'+i;
+				/*document.body.*/oUl.appendChild(oLi);
+
+			}
+			document.body.appendChild(oUl);
+
+
+			return false;
+		};
+		</script>
+	</body>
+</html>
